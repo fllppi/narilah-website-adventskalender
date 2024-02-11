@@ -1,0 +1,56 @@
+
+.video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(20px) brightness(0.5);
+}
+
+.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture {
+  border-radius: 50%;
+  width: 12vw;
+}
+
+.about {
+  margin-top: var(--mantine-spacing-lg);
+  color: var(--mantine-color-white);
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5vw;
+  font-family: 'Yellowtail';
+}
+
+.mobileTitle {
+  font-size: 15vw;
+  font-family: 'Yellowtail';
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.5vw;
+}
+
+.mobileSubtitle {
+  font-size: 6vw;
+  
+}

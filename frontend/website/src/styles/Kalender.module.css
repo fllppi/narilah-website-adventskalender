@@ -1,0 +1,277 @@
+.KalenderTitle {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+}
+
+button {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  justify-content: center;
+  width: 90vw;
+  height: 65vh;
+  margin: 0 auto;
+}
+
+.grid_mobile {
+  display: grid;
+  grid-template-columns: repeat(5, 75px [col-start]);
+  grid-template-rows: repeat(12, 100px [row-start]);
+  justify-content: center;
+}
+
+.gridItem {
+  position: relative;
+  font-size: 4vw;
+  font-family: 'Pacifico', cursive;
+}
+
+.gridItem_mobile {
+  position: relative;
+  font-size: min(10vw, 50px);
+  font-family: 'Pacifico', cursive;
+}
+
+.gridItemBox {
+  position: absolute;
+  top: -1px;
+  bottom: 0;
+  left: -1px;
+  right: 0;
+  border: 1px dashed #333;
+  color: #333;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 14px;
+}
+
+.gridItem_large {
+  font-size: 6vw;
+}
+
+.gridItem_large_mobile {
+  font-size: min(20vw, 80px);
+}
+
+.gridItem_color_1 {
+  background-color: #fc51d7;
+}
+
+.gridItem_color_2 {
+  background-color: #ff3895;
+}
+
+.gridItem_color_3 {
+  background-color: #62cdff;
+}
+
+.gridItem_color_4 {
+  background-color: #f7b27a;
+}
+
+.gridItem_color_5 {
+  background-color: #e562f7;
+}
+
+.gridItem_1 {
+  grid-area: 1 / 6 / span 2 / span 2;
+}
+
+.gridItem_2 {
+  grid-area: 4 / 4 / span 2 / span 2;
+}
+
+.gridItem_3 {
+  grid-area: 2 / 9 / span 2 / span 2;
+}
+
+.gridItem_4 {
+  grid-area: 5 / 6 / span 2 / span 2;
+}
+
+.gridItem_5 {
+  grid-area: 2 / 3 / span 2 / span 1;
+}
+
+.gridItem_6 {
+  grid-area: 2 / 4 / span 2 / span 2;
+}
+
+.gridItem_7 {
+  grid-area: 4 / 1 / span 1 / span 1;
+}
+
+.gridItem_8 {
+  grid-area: 3 / 6 / span 1 / span 2;
+}
+
+.gridItem_9 {
+  grid-area: 1 / 3 / span 1 / span 2;
+}
+
+.gridItem_10 {
+  grid-area: 6 / 9 / span 1 / span 2;
+}
+
+.gridItem_11 {
+  grid-area: 2 / 8 / span 2 / span 1;
+}
+
+.gridItem_12 {
+  grid-area: 6 / 4 / span 1 / span 2;
+}
+
+.gridItem_13 {
+  grid-area: 1 / 1 / span 2 / span 2;
+}
+
+.gridItem_14 {
+  grid-area: 4 / 7 / span 1 / span 2;
+}
+
+.gridItem_15 {
+  grid-area: 1 / 10 / span 1 / span 1;
+}
+
+.gridItem_16 {
+  grid-area: 4 / 2 / span 1 / span 2;
+}
+
+.gridItem_17 {
+  grid-area: 5 / 3 / span 2 / span 1;
+}
+
+.gridItem_18 {
+  grid-area: 1 / 5 / span 1 / span 1;
+}
+
+.gridItem_19 {
+  grid-area: 4 / 6 / span 1 / span 1;
+}
+
+.gridItem_20 {
+  grid-area: 1 / 8 / span 1 / span 2;
+}
+
+.gridItem_21 {
+  grid-area: 4 / 9 / span 2 / span 2;
+}
+
+.gridItem_22 {
+  grid-area: 3 / 1 / span 1 / span 2;
+}
+
+.gridItem_23 {
+  grid-area: 5 / 8 / span 2 / span 1;
+}
+
+.gridItem_24 {
+  grid-area: 5 / 1 / span 2 / span 2;
+}
+
+.gridItem_mobile_1 {
+  grid-area: 7 / 1 / span 2 / span 2;
+}
+
+.gridItem_mobile_2 {
+  grid-area: 4 / 4 / span 2 / span 2;
+}
+
+.gridItem_mobile_3 {
+  grid-area: 8 / 4 / span 2 / span 2;
+}
+
+.gridItem_mobile_4 {
+  grid-area: 11 / 1 / span 2 / span 2;
+}
+
+.gridItem_mobile_5 {
+  grid-area: 2 / 3 / span 2 / span 1;
+}
+
+.gridItem_mobile_6 {
+  grid-area: 2 / 4 / span 2 / span 2;
+}
+
+.gridItem_mobile_7 {
+  grid-area: 4 / 1 / span 1 / span 1;
+}
+
+.gridItem_mobile_8 {
+  grid-area: 9 / 1 / span 1 / span 2;
+}
+
+.gridItem_mobile_9 {
+  grid-area: 1 / 3 / span 1 / span 2;
+}
+
+.gridItem_mobile_10 {
+  grid-area: 12 / 4 / span 1 / span 2;
+}
+
+.gridItem_mobile_11 {
+  grid-area: 8 / 3 / span 2 / span 1;
+}
+
+.gridItem_mobile_12 {
+  grid-area: 6 / 4 / span 1 / span 2;
+}
+
+.gridItem_mobile_13 {
+  grid-area: 1 / 1 / span 2 / span 2;
+}
+
+.gridItem_mobile_14 {
+  grid-area: 10 / 2 / span 1 / span 2;
+}
+
+.gridItem_mobile_15 {
+  grid-area: 7 / 5 / span 1 / span 1;
+}
+
+.gridItem_mobile_16 {
+  grid-area: 4 / 2 / span 1 / span 2;
+}
+
+.gridItem_mobile_17 {
+  grid-area: 5 / 3 / span 2 / span 1;
+}
+
+.gridItem_mobile_18 {
+  grid-area: 1 / 5 / span 1 / span 1;
+}
+
+.gridItem_mobile_19 {
+  grid-area: 10 / 1 / span 1 / span 1;
+}
+
+.gridItem_mobile_20 {
+  grid-area: 7 / 3 / span 1 / span 2;
+}
+
+.gridItem_mobile_21 {
+  grid-area: 10 / 4 / span 2 / span 2;
+}
+
+.gridItem_mobile_22 {
+  grid-area: 3 / 1 / span 1 / span 2;
+}
+
+.gridItem_mobile_23 {
+  grid-area: 11 / 3 / span 2 / span 1;
+}
+
+.gridItem_mobile_24 {
+  grid-area: 5 / 1 / span 2 / span 2;
+}

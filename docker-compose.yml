@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  api:
+    image: registry.gitlab.com/flippi1/twitch/narilah-website/api:latest
+    restart: unless-stopped
+    environment:
+      - FRONTEND_URL=https://narilah.flippi.cloud
+    networks:
+      - narilah_website
+
+  frontend:
+    image: registry.gitlab.com/flippi1/twitch/narilah-website/frontend:latest
+    restart: unless-stopped
+    networks:
+      - narilah_website
+
+  cloudflared:
+    image: registry.gitlab.com/flippi1/twitch/narilah-website/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=VAR_TUNNEL_TOKEN
+    networks:
+      - narilah_website
+
+networks:
+  narilah_website:
+

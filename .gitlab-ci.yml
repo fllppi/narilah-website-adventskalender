@@ -1,0 +1,53 @@
+stages:
+  - security scan
+  - trigger
+
+include:
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+  - template: Security/SAST-IaC.latest.gitlab-ci.yml
+
+iac-sast:
+  stage: security scan
+  needs: []
+  allow_failure: false
+
+secret_detection:
+  stage: security scan
+  needs: []
+  allow_failure: false
+
+update api container:
+  stage: trigger
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab/pipelines/api.gitlab-ci.yml
+        - api/**/*
+        - docker-compose.yml
+  trigger:
+    include: ".gitlab/pipelines/api.gitlab-ci.yml"
+    strategy: depend
+
+update cloudflared container:
+  stage: trigger
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab/pipelines/cloudflared.gitlab-ci.yml
+        - cloudflared/**/*
+        - docker-compose.yml
+  trigger:
+    include: ".gitlab/pipelines/cloudflared.gitlab-ci.yml"
+    strategy: depend
+
+update frontend container:
+  stage: trigger
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab/pipelines/frontend.gitlab-ci.yml
+        - frontend/**/*
+        - docker-compose.yml
+  trigger:
+    include: ".gitlab/pipelines/frontend.gitlab-ci.yml"
+    strategy: depend

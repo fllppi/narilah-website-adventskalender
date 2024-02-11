@@ -1,0 +1,38 @@
+stages:
+  - build+push
+  - deploy
+
+variables:
+  VERSION: "$CI_PIPELINE_ID"
+  CI_DOCKERFILE_NAME: "Dockerfile"
+  CI_DOCKERFILE_PATH: "frontend/"
+  FRONTEND_RELEASE: "$CI_REGISTRY_IMAGE/frontend:release-$VERSION"
+  FRONTEND_LATEST: "$CI_REGISTRY_IMAGE/frontend:latest"
+
+build+push frontend:
+  stage: build+push
+  image:
+    name: "gcr.io/kaniko-project/executor:v1.18.0-debug"
+    entrypoint: [""]
+  script:
+    - /kaniko/executor
+      --context $CI_DOCKERFILE_PATH
+      --dockerfile $CI_DOCKERFILE_PATH$CI_DOCKERFILE_NAME
+      --destination $FRONTEND_RELEASE
+      --destination $FRONTEND_LATEST
+
+deploy frontend:
+  stage: deploy
+  tags:
+    - cloud-server
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - sed -i "s=VAR_TUNNEL_TOKEN="$CLOUDFLARE_TOKEN"=g" docker-compose.yml
+    - docker compose -f docker-compose.yml pull frontend
+    - docker compose -f docker-compose.yml -p narilah-website down frontend
+    - docker compose -f docker-compose.yml -p narilah-website up -d frontend --force-recreate
+    - docker image prune -f
+  after_script:
+    - rm docker-compose.yml
+    - docker logout $CI_REGISTRY
